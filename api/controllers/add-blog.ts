@@ -1,7 +1,8 @@
 import { BlogType } from '../types/blog';
+import { Model }  from '../types/Model';
 import e from 'express';
 
-declare var Blog: any;
+declare var Blog: Model<BlogType>;
 
 module.exports = async function (req: e.Request<{}, {}, BlogType>, res: e.Response) {
     try {
@@ -15,9 +16,6 @@ module.exports = async function (req: e.Request<{}, {}, BlogType>, res: e.Respon
         const blogTitle: string = newBlog.title;
         
         return res.status(200).json({ blog: newBlog, title: blogTitle });
-
-
-
     }
     catch(err) {
         return res.status(500).json(err);
