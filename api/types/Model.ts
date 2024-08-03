@@ -4,7 +4,7 @@ export interface Model<value>  {
     create(obj: value) : ReturnValue<value>;
 }
 
-export interface ReturnValue<value>{
+interface ReturnValue<value>{
     value: Promise<value>;
     fetch(): Promise<value>;
 }
