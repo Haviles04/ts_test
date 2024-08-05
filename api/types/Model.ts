@@ -1,10 +1,10 @@
-export interface Model<value> { 
+export type Model<value> = { 
     find(): Promise<value[]>;
     findOne(id: number): Promise<value>;
-    create(obj: value): ReturnValue<value> & Promise<value>;
+    create(obj: value): ReturnValue<value> ;
 }
 
-interface ReturnValue<value> {
+type ReturnValue<value> = Promise<value> &  {
     fetch(): Promise<value>;
 }
 
